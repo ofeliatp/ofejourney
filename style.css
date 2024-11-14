@@ -70,16 +70,19 @@ svg {
   color: rgb(215, 5, 5);
 }
 header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   border-bottom: 3px solid rgb(215, 5, 5);
   border-top: 3px solid rgb(215, 5, 5);
   height: 80px;
-  position: 0;
   display: flex;
   justify-content: space-between;
+  background-color: white;
 }
 
 img .logotipo {
-  width: 260px;
+  width: 20vh;
   height: auto;
   display: flex;
 }
@@ -88,6 +91,7 @@ nav ul {
   justify-content: flex-end;
   align-content: center;
   list-style-type: none;
+  width: 60vw;
 }
 nav ul li:hover {
   cursor: pointer;
@@ -116,7 +120,7 @@ nav ul li:hover {
 .header {
   display: flex;
   justify-content: flex-end;
-  width: 140px;
+  width: 20vw;
 }
 img .rrss {
   width: 60px;
@@ -133,13 +137,13 @@ section {
 h1 {
   margin-top: 50px;
   margin-bottom: 30px;
-  font-family: 'Noto Sans JP', sans-serif;
-  font-weight: 700;
+  font-family: 'Nekst Serif';
+  font-weight: 900;
   font-size: 100pt;
   padding-left: 40px;
   line-height: 0.9;
   color: rgb(215, 5, 5);
-  font-variation-settings: 'slnt' -10, 'wdth' 700, 'wght' 700;
+  font-variation-settings: 'slnt' -10, 'wdth' 900, 'wght' 900;
   transition: 200ms;
 
   &:hover {
@@ -163,11 +167,12 @@ h4 {
   margin-left: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 6px;
 }
 
 .col2 {
   width: 50vw;
-  height: 700px;
+  height: 100vh;
   overflow: hidden;
 }
 .boda {
@@ -202,9 +207,14 @@ p {
   margin-right: 10px;
   padding-right: 40px;
 }
+.alturadiv {
+  height: 80px;
+}
+
 #itinerario {
   display: flex;
 }
+
 .menu {
   display: flex;
   justify-content: space-between;
@@ -214,15 +224,16 @@ p {
 
 .menu-item {
   position: relative;
+  outline: 2px solid rgb(215, 5, 5);
 
   flex: 1;
-  border: 2px solid red;
   overflow: hidden;
   text-decoration: none;
   color: black;
   cursor: pointer;
   z-index: 999;
 }
+
 .menu-item:hover {
   cursor: pointer;
 }
@@ -244,7 +255,8 @@ h5 {
   font-size: 20pt;
   color: rgb(215, 5, 5);
   margin-top: 0;
-  margin-left: 40px;
+  margin-left: 50px;
+  margin-bottom: 20px;
 }
 
 h2 {
@@ -257,12 +269,147 @@ h2 {
   line-height: 0.9;
 }
 
+.menu-item:hover h2,
+.menu-item:hover h5,
+.menu-item:hover h3 {
+  color: white;
+}
+
 .link-hovered {
-  background-color: red;
+  background-color: rgb(215, 5, 5);
   cursor: pointer;
+  color: white;
 }
 
 .menu-item.link-hovered {
   cursor: pointer;
-  background-color: red;
+  background-color: rgb(215, 5, 5);
+  color: white;
+}
+
+.texto_tokyo {
+  display: flex;
+  width: 60%;
+  margin-left: 10px;
+  padding-left: 40px;
+}
+
+.dias {
+  font-family: 'DTLNobel';
+  font-weight: 500;
+  font-size: 56px;
+  color: rgba(0, 0, 0, 0);
+  -webkit-text-stroke: 1.2px rgb(215, 5, 5);
+  margin-top: 30px;
+  margin-left: 40px;
+  margin-bottom: 0%;
+  padding-bottom: 0;
+}
+
+.hoteles {
+  display: flex;
+  justify-content: right;
+  align-items: end;
+  width: 40vw;
+  height: auto;
+}
+
+.video-mascara {
+  width: 840px;
+  height: 840px;
+  overflow: hidden;
+  mask-size: cover;
+  margin-right: 0;
+}
+
+.video-mascara video {
+  width: 40vw;
+  height: auto;
+  object-fit: cover;
+  margin-right: 0;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.column {
+  display: flex;
+  flex-direction: column;
+}
+
+#tokyo-imagenes {
+  justify-content: space-between;
+}
+
+.imagenes_tokyo {
+  width: 50vh;
+  margin-top: 60px;
+  height: auto;
+  object-fit: cover;
+}
+.media {
+  flex: 1;
+  max-width: 33vw;
+  overflow: hidden;
+}
+
+.textositios {
+  margin-left: 40px;
+}
+
+.imagenes_recortadas {
+  width: 40%;
+  height: auto;
+  z-index: 30;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+#takaragawa {
+  width: 100%;
+}
+
+#contenedortaka {
+  display: flex;
+}
+
+.child {
+  flex-grow: 1;
+  justify-content: flex-end;
+}
+
+.fotos_taka {
+  width: 50vw;
+  height: auto;
+}
+
+.texto_taka {
+  margin-left: 40px;
+  margin-right: 40px;
+  width: 30vw;
+}
+
+.sello {
+  width: 180px;
+  height: auto;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+.fotos_exp {
+  width: 50vw;
+}
+
+.imagenes_recortadas2 {
+  width: 10vw;
+  height: auto;
+}
+
+.video-mascara media2 {
+  width: 50vw;
+  height: auto;
+  object-fit: cover;
+  margin-right: 0;
 }
