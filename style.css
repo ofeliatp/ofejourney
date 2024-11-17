@@ -1,10 +1,3 @@
-body {
-  margin: 40px;
-  border-bottom: 3px solid rgb(215, 5, 5);
-  border-left: 3px solid rgb(215, 5, 5);
-  border-right: 3px solid rgb(215, 5, 5);
-}
-
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
 
 @font-face {
@@ -66,6 +59,13 @@ body {
   font-display: swap;
 }
 
+body {
+  margin: 40px;
+  border-bottom: 3px solid rgb(215, 5, 5);
+  border-left: 3px solid rgb(215, 5, 5);
+  border-right: 3px solid rgb(215, 5, 5);
+}
+
 svg {
   color: rgb(215, 5, 5);
 }
@@ -81,17 +81,27 @@ header {
   background-color: white;
 }
 
-img .logotipo {
-  width: 20vh;
-  height: auto;
+.logo {
   display: flex;
+  justify-content: flex-start;
+  width: 30vw;
 }
+
+.logotipo img {
+  width: auto;
+  height: 100%;
+  border: 5px solid rgb(215, 5, 5);
+}
+
+#principalNav {
+  width: 40vw;
+}
+
 nav ul {
   display: flex;
   justify-content: flex-end;
   align-content: center;
   list-style-type: none;
-  width: 60vw;
 }
 nav ul li:hover {
   cursor: pointer;
@@ -99,16 +109,15 @@ nav ul li:hover {
 .nav-a {
   display: flex;
   position: relative;
-
   justify-content: flex-end;
   padding-top: 8px;
   font-family: 'DTLNobel';
   font-weight: 500;
-  font-size: 16pt;
+  font-size: 1.3rem;
   color: rgb(215, 5, 5);
   text-decoration: none;
-  margin-left: 40px;
-  margin-right: 40px;
+  margin-left: 18px;
+  margin-right: 18px;
   cursor: pointer; /* Asegúrate de que el cursor esté aquí */
   z-index: 999;
 }
@@ -117,14 +126,20 @@ nav ul li:hover {
   cursor: pointer; /* Asegúrate de que el cursor esté también en el hover */
 }
 
-.header {
+.rrss {
   display: flex;
   justify-content: flex-end;
-  width: 20vw;
 }
 img .rrss {
-  width: 60px;
-  height: 60px;
+  width: auto;
+  height: 100%;
+}
+
+.hamburguesa {
+  display: none;
+}
+svg {
+  fill: rgb(215, 5, 5);
 }
 
 section {
@@ -244,7 +259,6 @@ p {
 .menu-item {
   position: relative;
   outline: 2px solid rgb(215, 5, 5);
-
   flex: 1;
   overflow: hidden;
   text-decoration: none;
@@ -416,13 +430,13 @@ h2 {
   width: 50vw;
 }
 
-.sello1 {
+/* .sello1 {
   width: 150px !important;
   height: auto;
   position: absolute;
   top: 423vh;
   left: 90vw;
-}
+} */
 .fotos_exp {
   width: 50vw;
 }
@@ -432,12 +446,12 @@ h2 {
   height: auto;
 }
 
-.video-mascara media2 {
+/* .video-mascara media2 {
   width: 50vw;
   height: auto;
   object-fit: cover;
   margin-right: 0;
-}
+} */
 
 /* / SLIDER */
 
@@ -446,9 +460,6 @@ h2 {
   flex-direction: row;
   width: 100vw;
   margin-top: 60px;
-}
-.text-selected {
-  color: rgb(215, 5, 5);
 }
 
 .slider-texts {
@@ -477,18 +488,16 @@ h2 {
 }
 
 .text-selected {
-  display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   padding: 0;
   width: 30vw;
-  margin-right: 20px;
+  /* margin-right: 20px; */
   margin-bottom: 12px;
   font-family: 'Nekst Serif';
   font-weight: 900;
   font-size: 3rem;
   line-height: 0.9;
   color: rgb(215, 5, 5);
-  text-align: right;
 }
 
 .columna_taka {
@@ -498,21 +507,23 @@ h2 {
 
 .card {
   position: relative;
-  width: 200px;
+  display: flex;
+  justify-content: space-between;
+  width: 242px;
   aspect-ratio: 1;
   border: 8px solid #fff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  gap: 25px;
-
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+  margin-top: -50px;
+  margin-bottom: 100px;
+  opacity: 0;
 }
-
+.card .image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 .card:nth-child(1) {
   rotate: 10deg;
   translate: calc(-2 * var(--gap));
@@ -545,4 +556,66 @@ h2 {
 .card:nth-child(7) {
   rotate: 2deg;
   translate: calc(2 * var(--gap));
+}
+
+.texto_experiencias {
+  margin-left: 40px;
+  width: 50vw;
+}
+
+@media (max-width: 768px) {
+  #inicio {
+    flex-direction: column;
+  }
+  .col1 {
+    width: 100vw;
+  }
+  .col2 {
+    width: 100vw;
+  }
+}
+
+@media (min-width: 769px) {
+  #inicio {
+    flex-direction: row;
+  }
+}
+
+.description:hover {
+  cursor: pointer;
+}
+
+.description {
+  font-family: 'Nekst Serif';
+}
+
+.columna_taka .slider-texts {
+  text-align: left;
+}
+.taka-parent {
+  display: flex;
+  position: relative; /* Contexto para el posicionamiento absoluto */
+  width: 100%; /* Ajusta el tamaño según sea necesario */
+  height: auto;
+  align-items: center; /* Centrar contenido verticalmente */
+  justify-content: center; /* Centrar contenido horizontalmente */
+}
+
+.kanji {
+  position: absolute; /* Posición absoluta relativa a .taka-parent */
+  font-family: 'Nekst Serif';
+  font-weight: 900;
+  font-size: 8rem; /* Ajusta el tamaño para que quepa mejor */
+  line-height: 1; /* Reducir espacio entre líneas */
+  color: rgb(215, 5, 5);
+  transform-origin: center; /* Transformaciones desde el centro */
+  writing-mode: vertical-lr; /* Texto en orientación vertical */
+  text-orientation: upright; /* Letras completamente verticales */
+  transform-origin: center;
+  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
+  text-align: center; /* Centra las letras horizontalmente */
+  left: -81px;
+}
+.kanji:hover {
+  cursor: pointer;
 }

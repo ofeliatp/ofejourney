@@ -84,28 +84,54 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', function () {});
 
-  function createSlider(selectorImanges, selectorTextos) {
+  function createSlider(selectorImagenes, selectorTextos) {
     let currentIndex = 0;
-    const imagenes = document.querySelectorAll(selectorImanges);
+    const imagenes = document.querySelectorAll(selectorImagenes);
     const textos = document.querySelectorAll(selectorTextos);
+
+    // Añadir event listener a cada texto
+    Array.from(textos).forEach((texto) => {
+      texto.addEventListener('click', (event) => {
+        const dataTextAttr = event.target
+          .getAttributeNames()
+          .find((attr) => attr.startsWith('data-text'));
+
+        if (dataTextAttr) {
+          const newIndex = parseInt(
+            event.target.getAttribute(dataTextAttr).replace('data-text-', ''),
+            10
+          );
+
+          if (!isNaN(newIndex)) {
+            currentIndex = newIndex; // Actualiza el índice al clickeado
+            console.log('Nuevo índice:', currentIndex);
+            updateSlider(); // Actualiza el slider inmediatamente
+          }
+        }
+      });
+    });
 
     function updateSlider() {
       // Quitar clases de la imagen y el texto actuales
-      imagenes[currentIndex].classList.remove('display');
-      imagenes[currentIndex].classList.add('hide');
-      textos[currentIndex].classList.remove('text-selected');
+      imagenes.forEach((img, index) => {
+        img.classList.toggle('display', index === currentIndex);
+        img.classList.toggle('hide', index !== currentIndex);
+      });
 
-      // Calcular el siguiente índice
-      currentIndex = (currentIndex + 1) % imagenes.length;
+      textos.forEach((txt, index) => {
+        txt.classList.toggle('text-selected', index === currentIndex);
+      });
 
-      // Añadir clases al siguiente elemento
-      imagenes[currentIndex].classList.remove('hide');
-      imagenes[currentIndex].classList.add('display');
-      textos[currentIndex].classList.add('text-selected');
+      // Animar el nuevo texto seleccionado
       animateTextSlider(textos[currentIndex]);
+
+      // Avanzar al siguiente índice para el auto-slider
+      currentIndex = (currentIndex + 1) % imagenes.length;
     }
+
     return updateSlider;
   }
+
   function animateTypingEffect(element) {
     gsap.set(element, { opacity: 1, visibility: 'visible' });
 
@@ -193,7 +219,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function animateTextSlider(element) {
     gsap.fromTo(
       element,
-      { opacity: 0, x: -50, scale: 0.8 }, // Estado inicial
+      { opacity: 0, x: 0, scale: 0.8 }, // Estado inicial
       { opacity: 1, x: 0, scale: 1, duration: 0.6, ease: 'power3.out' } // Animación final
     );
   }
@@ -245,11 +271,117 @@ document.addEventListener('DOMContentLoaded', function () {
   const slider1 = createSlider('.slider-1', '[data-texto-1]');
   const slider2 = createSlider('.slider-2', '[data-texto-2]');
   const slider3 = createSlider('.slider-3', '[data-texto-3]');
+  const slider4 = createSlider('.slider-4', '[data-texto-4]');
 
   // Ejecutar la función cada 3 segundos
   setInterval(slider1, 3000);
   setInterval(slider2, 3000);
   setInterval(slider3, 3000);
+  setInterval(slider4, 3000);
 
-  // fotos experiencias
+  const playAnimation = () => {
+    const cards = document.querySelectorAll('.card');
+
+    // Mostrar los elementos antes de animarlos
+    // cards.forEach((card) => {
+    //   card.style.opacity = 0;
+    // });
+
+    // Animar los elementos
+    gsap.fromTo(
+      '.card',
+      { scale: 0, autoAlpha: 0 }, // Ocultas al inicio
+
+      {
+        autoAlpha: 1, // Hacer visibles
+        scale: 1,
+        stagger: 0.1,
+        ease: 'elastic.out(1, 0.8)',
+        // delay: 0.5,
+      }
+    );
+  };
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  ScrollTrigger.create({
+    trigger: '.cards-container', // Selector del contenedor de las tarjetas
+    start: 'top 99%', // Cuando el contenedor esté al 80% de la ventana
+    onEnter: playAnimation, // Ejecuta la función al entrar en la vista
+  });
+
+  const links = document.querySelectorAll('a[nav-scroll]'); // Seleccionar solo los enlaces con data-scroll
+
+  links.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+
+      const targetId = link.getAttribute('href').slice(1); // Obtener el ID del destino
+      const targetElement = document.getElementById(targetId);
+      let offset = 0;
+      if (targetId == 'inicio') {
+        offset = 83;
+      } else if (targetId == 'itinerario') {
+        offset = 84;
+      } else {
+        offset = 83;
+      }
+
+      if (targetElement) {
+        const elementPosition = targetElement.offsetTop; // Posición del elemento desde el top de la página
+        const offsetPosition = elementPosition - offset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth', // Desplazamiento suave
+        });
+      }
+    });
+  });
+
+  function animateTextVertical2(selector) {
+    const elements = document.querySelectorAll(selector);
+
+    elements.forEach((element) => {
+      // Dividir el texto en caracteres individuales
+      const splitText = new SplitText(element, { type: 'chars' });
+      const chars = splitText.chars;
+
+      // Configurar perspectiva para el elemento
+      gsap.set(element, { perspective: 400 });
+
+      // Crear ScrollTrigger con animaciones para entrada y salida
+      ScrollTrigger.create({
+        trigger: element,
+        start: 'top 60%',
+        end: 'bottom 10%',
+        toggleActions: 'play none none reverse',
+        onEnter: () => resetAndAnimate(chars),
+        onLeaveBack: () => resetAndAnimate(chars),
+      });
+
+      // Agregar evento click al elemento
+      element.addEventListener('click', () => {
+        resetAndAnimate(chars); // Ejecutar la animación al hacer clic
+      });
+    });
+
+    // Función para reiniciar y animar caracteres
+    function resetAndAnimate(chars) {
+      // Reiniciar el estado inicial de las letras
+      gsap.set(chars, { opacity: 0, y: 50, rotationX: -90 });
+
+      // Animar las letras desde el estado reiniciado
+      gsap.to(chars, {
+        opacity: 1,
+        y: 0,
+        rotationX: 0,
+        duration: 0.5,
+        ease: 'power2.out',
+        stagger: 0.2, // Retraso progresivo entre letras
+      });
+    }
+  }
+
+  animateTextVertical2('.kanji');
 });
