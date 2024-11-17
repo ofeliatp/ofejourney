@@ -84,24 +84,27 @@ document.addEventListener('DOMContentLoaded', function () {
 
   window.addEventListener('scroll', function () {});
 
-  let currentIndex = 0;
+  function createSlider(selectorImanges, selectorTextos) {
+    let currentIndex = 0;
+    const imagenes = document.querySelectorAll(selectorImanges);
+    const textos = document.querySelectorAll(selectorTextos);
 
-  function updateSlider(index, selectorImanges, selectorTextos) {
-    const imagenes = document.querySelectorAll('.slider');
-    const textos = document.querySelectorAll('[data-texto]');
-    // Quitar clases de la imagen y el texto actuales
-    imagenes[currentIndex].classList.remove('display');
-    imagenes[currentIndex].classList.add('hide');
-    textos[currentIndex].classList.remove('text-selected');
+    function updateSlider() {
+      // Quitar clases de la imagen y el texto actuales
+      imagenes[currentIndex].classList.remove('display');
+      imagenes[currentIndex].classList.add('hide');
+      textos[currentIndex].classList.remove('text-selected');
 
-    // Calcular el siguiente índice
-    currentIndex = (currentIndex + 1) % imagenes.length;
+      // Calcular el siguiente índice
+      currentIndex = (currentIndex + 1) % imagenes.length;
 
-    // Añadir clases al siguiente elemento
-    imagenes[currentIndex].classList.remove('hide');
-    imagenes[currentIndex].classList.add('display');
-    textos[currentIndex].classList.add('text-selected');
-    animateScaleRotateText(textos[currentIndex]);
+      // Añadir clases al siguiente elemento
+      imagenes[currentIndex].classList.remove('hide');
+      imagenes[currentIndex].classList.add('display');
+      textos[currentIndex].classList.add('text-selected');
+      animateTextSlider(textos[currentIndex]);
+    }
+    return updateSlider;
   }
   function animateTypingEffect(element) {
     gsap.set(element, { opacity: 1, visibility: 'visible' });
@@ -237,11 +240,16 @@ document.addEventListener('DOMContentLoaded', function () {
     );
   }
 
-  // Ejecutar la función cada 4 segundos
-  setInterval(updateSlider, 4000);
-
   // Inicializar el slider
-  updateSlider();
 
-  // letras
+  const slider1 = createSlider('.slider-1', '[data-texto-1]');
+  const slider2 = createSlider('.slider-2', '[data-texto-2]');
+  const slider3 = createSlider('.slider-3', '[data-texto-3]');
+
+  // Ejecutar la función cada 3 segundos
+  setInterval(slider1, 3000);
+  setInterval(slider2, 3000);
+  setInterval(slider3, 3000);
+
+  // fotos experiencias
 });
