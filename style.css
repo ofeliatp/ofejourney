@@ -101,6 +101,7 @@ nav ul {
   display: flex;
   justify-content: flex-end;
   align-content: center;
+  align-items: center;
   list-style-type: none;
 }
 nav ul li:hover {
@@ -110,20 +111,26 @@ nav ul li:hover {
   display: flex;
   position: relative;
   justify-content: flex-end;
-  padding-top: 8px;
+  align-items: baseline;
   font-family: 'DTLNobel';
-  font-weight: 500;
+  font-weight: 300;
   font-size: 1.3rem;
   color: rgb(215, 5, 5);
   text-decoration: none;
+  margin-top: 30px;
   margin-left: 18px;
   margin-right: 18px;
   cursor: pointer; /* Asegúrate de que el cursor esté aquí */
   z-index: 999;
+  transition: transform 0.3s ease;
 }
 
 .nav-a:hover {
-  cursor: pointer; /* Asegúrate de que el cursor esté también en el hover */
+  cursor: pointer;
+  font-family: 'DTLNobel';
+  font-weight: 500;
+
+  transform: scale(1.1);
 }
 
 .rrss {
@@ -155,16 +162,10 @@ h1 {
   margin-bottom: 30px;
   font-family: 'Nekst Serif';
   font-weight: 900;
-  font-size: 100pt;
+  font-size: 130pt;
   padding-left: 40px;
   line-height: 0.9;
   color: rgb(215, 5, 5);
-  font-variation-settings: 'slnt' -10, 'wdth' 900, 'wght' 900;
-  transition: 200ms;
-
-  &:hover {
-    font-variation-settings: 'slnt' -10, 'wdth' 100, 'wght' 100;
-  }
 }
 
 .fecha {
@@ -203,8 +204,21 @@ h4 {
 p {
   font-family: 'DTLNobel';
   font-weight: 300;
-  size: 18px;
+  font-size: 1.2rem;
   color: rgb(215, 5, 5);
+  margin-top: 60px;
+  line-height: 1.7;
+}
+
+.hotel {
+  font-family: 'DTLNobel';
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: rgb(215, 5, 5);
+  margin-top: 20px;
+  line-height: 1.7;
+  text-align: right;
+  padding-right: 20px;
 }
 
 .motivo {
@@ -222,7 +236,7 @@ p {
   position: absolute;
   top: 40vh;
   left: 16vw;
-  width: 25vw;
+  width: 18vw;
   height: auto;
   object-fit: cover;
   object-position: center;
@@ -287,7 +301,7 @@ h5 {
   font-weight: 500;
   font-size: 20pt;
   color: rgb(215, 5, 5);
-  margin-top: 0;
+  margin-top: 20px;
   margin-left: 50px;
   margin-bottom: 20px;
 }
@@ -297,7 +311,7 @@ h2 {
   font-weight: 900;
   font-size: 100px;
   color: rgb(215, 5, 5);
-  margin-top: 0;
+  margin-top: 94px;
   margin-left: 40px;
   line-height: 0.9;
 }
@@ -322,11 +336,11 @@ h2 {
 
 .texto_tokyo {
   display: flex;
-  width: 100 vw;
+  width: 70 vw;
   margin-left: 10px;
   padding-left: 40px;
   margin-right: 10px;
-  padding-right: 40px;
+  padding-right: 360px;
   margin-bottom: 60px;
 }
 
@@ -427,7 +441,8 @@ h2 {
 
 .texto_taka {
   margin-left: 40px;
-  width: 50vw;
+  padding-right: 360px;
+  width: 38vw;
 }
 
 /* .sello1 {
@@ -469,6 +484,7 @@ h2 {
   width: 30vw;
   margin-bottom: 12px;
   margin-right: 20px;
+  margin-left: 30px;
   font-family: 'Nekst Serif';
   font-weight: 900;
   font-size: 2rem;
@@ -490,13 +506,14 @@ h2 {
 .text-selected {
   /* flex-direction: column; */
   padding: 0;
+  margin: 0;
   width: 30vw;
   /* margin-right: 20px; */
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
   font-family: 'Nekst Serif';
   font-weight: 900;
   font-size: 3rem;
-  line-height: 0.9;
+  /* line-height: 0.9; */
   color: rgb(215, 5, 5);
 }
 
@@ -509,13 +526,13 @@ h2 {
   position: relative;
   display: flex;
   justify-content: space-between;
-  width: 242px;
+  width: 304px;
   aspect-ratio: 1;
   border: 8px solid #fff;
   border-radius: 20px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  margin-top: -50px;
+  margin-top: -140px;
   margin-bottom: 100px;
   opacity: 0;
 }
@@ -558,9 +575,38 @@ h2 {
   translate: calc(2 * var(--gap));
 }
 
+.fila {
+  display: flex;
+  width: 100vw;
+}
 .texto_experiencias {
   margin-left: 40px;
-  width: 50vw;
+  width: 34vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.sello,
+.image2 {
+  position: absolute;
+  width: 7vw;
+  margin-left: 200px;
+  transform: rotate(10deg);
+}
+
+.sello,
+.image3 {
+  position: absolute;
+  width: 160px;
+  transform: rotate(-10deg);
+}
+
+.sello,
+.image4 {
+  position: absolute;
+  width: 220px;
+  margin-left: 340px;
+  transform: rotate(4deg);
 }
 
 @media (max-width: 768px) {
@@ -583,16 +629,20 @@ h2 {
 
 .description:hover {
   cursor: pointer;
+  text-decoration: underline;
 }
 
 .description {
   font-family: 'Nekst Serif';
+  margin: 0;
 }
 
 .columna_taka .slider-texts {
   text-align: left;
 }
-.taka-parent {
+.taka-parent,
+.tokyo-parent,
+.kyoto-parent {
   display: flex;
   position: relative; /* Contexto para el posicionamiento absoluto */
   width: 100%; /* Ajusta el tamaño según sea necesario */
@@ -614,8 +664,49 @@ h2 {
   transform-origin: center;
   height: 100%; /* Asegura que ocupe todo el alto del contenedor */
   text-align: center; /* Centra las letras horizontalmente */
-  left: -81px;
+  left: -57px;
+  top: -220px;
 }
 .kanji:hover {
+  cursor: pointer;
+}
+
+.kanji-tokyo {
+  position: absolute; /* Posición absoluta relativa a .taka-parent */
+  font-family: 'Nekst Serif';
+  font-weight: 900;
+  font-size: 8rem; /* Ajusta el tamaño para que quepa mejor */
+  line-height: 1; /* Reducir espacio entre líneas */
+  color: rgb(215, 5, 5);
+  transform-origin: center; /* Transformaciones desde el centro */
+  writing-mode: vertical-lr; /* Texto en orientación vertical */
+  text-orientation: upright; /* Letras completamente verticales */
+  transform-origin: center;
+  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
+  text-align: center; /* Centra las letras horizontalmente */
+  left: 143px;
+  top: -289px;
+}
+.kanji-tokyo:hover {
+  cursor: pointer;
+}
+
+.kanji-kyoto {
+  position: absolute; /* Posición absoluta relativa a .taka-parent */
+  font-family: 'Nekst Serif';
+  font-weight: 900;
+  font-size: 8rem; /* Ajusta el tamaño para que quepa mejor */
+  line-height: 1; /* Reducir espacio entre líneas */
+  color: rgb(215, 5, 5);
+  transform-origin: center; /* Transformaciones desde el centro */
+  writing-mode: vertical-lr; /* Texto en orientación vertical */
+  text-orientation: upright; /* Letras completamente verticales */
+  transform-origin: center;
+  height: 100%; /* Asegura que ocupe todo el alto del contenedor */
+  text-align: center; /* Centra las letras horizontalmente */
+  left: -370px;
+  top: 182px;
+}
+.kanji-kyoto:hover {
   cursor: pointer;
 }

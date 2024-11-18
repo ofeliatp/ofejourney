@@ -274,10 +274,10 @@ document.addEventListener('DOMContentLoaded', function () {
   const slider4 = createSlider('.slider-4', '[data-texto-4]');
 
   // Ejecutar la función cada 3 segundos
-  setInterval(slider1, 3000);
-  setInterval(slider2, 3000);
-  setInterval(slider3, 3000);
-  setInterval(slider4, 3000);
+  setInterval(slider1, 5000);
+  setInterval(slider2, 5000);
+  setInterval(slider3, 5000);
+  setInterval(slider4, 5000);
 
   const playAnimation = () => {
     const cards = document.querySelectorAll('.card');
@@ -320,10 +320,16 @@ document.addEventListener('DOMContentLoaded', function () {
       const targetElement = document.getElementById(targetId);
       let offset = 0;
       if (targetId == 'inicio') {
-        offset = 83;
+        offset = 94;
       } else if (targetId == 'itinerario') {
         offset = 84;
-      } else {
+      } else if (targetId == 'experiencias') {
+        offset = 84;
+      } else if (targetId == 'tokyo') {
+        offset = 83;
+      } else if (targetId == 'takaragawa') {
+        offset = 83;
+      } else if (targetId == 'kyoto') {
         offset = 83;
       }
 
@@ -384,4 +390,6 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   animateTextVertical2('.kanji');
+  animateTextVertical2('.kanji-tokyo');
+  animateTextVertical2('.kanji-kyoto');
 });
