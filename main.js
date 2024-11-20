@@ -392,4 +392,60 @@ document.addEventListener('DOMContentLoaded', function () {
   animateTextVertical2('.kanji');
   animateTextVertical2('.kanji-tokyo');
   animateTextVertical2('.kanji-kyoto');
+
+  //Sello
+
+  const sellos = [
+    './imagenes/fotos/sellos/proyectoWeb-08.png',
+    './imagenes/fotos/sellos/proyectoWeb-14.png',
+    './imagenes/fotos/sellos/proyectoWeb-29.png',
+    './imagenes/fotos/sellos/proyectoWeb-28.png',
+  ];
+
+  let selloIndex = 0;
+  const zonaEstampado = document.getElementById('zona-estampado');
+
+  // Crear un elemento que siga al cursor
+  const cursorSello = document.createElement('img');
+  cursorSello.src = sellos[selloIndex];
+  cursorSello.className = 'cursor-sello';
+  cursorSello.classList.add('no-display');
+  document.body.appendChild(cursorSello);
+
+  zonaEstampado.addEventListener('mouseenter', () => {
+    cursorSello.classList.remove('no-display');
+  });
+
+  zonaEstampado.addEventListener('mouseleave', () => {
+    cursorSello.classList.add('no-display');
+  });
+
+  // Mover el cursor personalizado con el ratón
+  document.addEventListener('mousemove', (event) => {
+    cursorSello.style.left = `${event.pageX}px`;
+    cursorSello.style.top = `${event.pageY}px`;
+  });
+
+  // Estampar y cambiar al siguiente sello
+  zonaEstampado.addEventListener('click', (event) => {
+    const x = event.offsetX;
+    const y = event.offsetY;
+
+    // Crear la imagen del sello en la posición clicada
+    const estampado = document.createElement('img');
+    estampado.src = sellos[selloIndex];
+    estampado.className = 'cursor-sello';
+    estampado.style.position = 'absolute';
+    estampado.style.left = `${x}px`;
+    estampado.style.top = `${y}px`;
+    const sizeRandom = Math.random() * (250 - 70) + 70;
+    estampado.style.transform = `rotate(${Math.random() * 360}deg)`; // Rotación aleatoria
+    estampado.style.width = `${sizeRandom}px`;
+    estampado.style.height = `${sizeRandom}px`;
+    zonaEstampado.appendChild(estampado);
+
+    // Cambiar al siguiente sello
+    selloIndex = (selloIndex + 1) % sellos.length; // Bucle entre 0, 1 y 2
+    cursorSello.src = sellos[selloIndex];
+  });
 });
