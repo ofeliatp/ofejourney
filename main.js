@@ -273,7 +273,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const slider3 = createSlider('.slider-3', '[data-texto-3]');
   const slider4 = createSlider('.slider-4', '[data-texto-4]');
 
-  // Ejecutar la función cada 3 segundos
   setInterval(slider1, 5000);
   setInterval(slider2, 5000);
   setInterval(slider3, 5000);
@@ -282,12 +281,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const playAnimation = () => {
     const cards = document.querySelectorAll('.card');
 
-    // Mostrar los elementos antes de animarlos
-    // cards.forEach((card) => {
-    //   card.style.opacity = 0;
-    // });
-
-    // Animar los elementos
     gsap.fromTo(
       '.card',
       { scale: 0, autoAlpha: 0 }, // Ocultas al inicio
@@ -314,9 +307,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
   links.forEach((link) => {
     link.addEventListener('click', (event) => {
-      event.preventDefault(); // Evitar el comportamiento predeterminado del enlace
+      event.preventDefault();
 
-      const targetId = link.getAttribute('href').slice(1); // Obtener el ID del destino
+      const targetId = link.getAttribute('href').slice(1);
       const targetElement = document.getElementById(targetId);
       let offset = 0;
       if (targetId == 'inicio') {
@@ -334,12 +327,12 @@ document.addEventListener('DOMContentLoaded', function () {
       }
 
       if (targetElement) {
-        const elementPosition = targetElement.offsetTop; // Posición del elemento desde el top de la página
+        const elementPosition = targetElement.offsetTop;
         const offsetPosition = elementPosition - offset;
 
         window.scrollTo({
           top: offsetPosition,
-          behavior: 'smooth', // Desplazamiento suave
+          behavior: 'smooth',
         });
       }
     });
@@ -420,7 +413,6 @@ document.addEventListener('DOMContentLoaded', function () {
     cursorSello.classList.add('no-display');
   });
 
-  // Mover el cursor personalizado con el ratón
   document.addEventListener('mousemove', (event) => {
     cursorSello.style.left = `${event.pageX}px`;
     cursorSello.style.top = `${event.pageY}px`;
