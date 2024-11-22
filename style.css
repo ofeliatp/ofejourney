@@ -598,29 +598,6 @@ h2 {
   flex-direction: row;
 }
 
-/* .sello,
-.image2 {
-  position: absolute;
-  width: 7vw;
-  margin-left: 200px;
-  transform: rotate(10deg);
-}
-
-.sello,
-.image3 {
-  position: absolute;
-  width: 160px;
-  transform: rotate(-10deg);
-}
-
-.sello,
-.image4 {
-  position: absolute;
-  width: 220px;
-  margin-left: 340px;
-  transform: rotate(4deg);
-} */
-
 @media (max-width: 768px) {
   #inicio {
     flex-direction: column;
@@ -799,8 +776,9 @@ h7 {
 }
 
 .instrucciones {
-  width: 828px;
+  width: 94%;
   padding-left: 20px;
+  padding-right: 20px;
   padding-top: 30px;
   padding-bottom: 30px;
   background-color: rgb(215, 5, 5);
