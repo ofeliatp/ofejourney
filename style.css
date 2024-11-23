@@ -126,7 +126,7 @@ nav ul li:hover {
   margin-top: 24px;
   margin-left: 18px;
   margin-right: 18px;
-  cursor: pointer; /* Asegúrate de que el cursor esté aquí */
+  cursor: pointer;
   z-index: 999;
   transition: transform 0.3s ease;
 }
@@ -139,7 +139,7 @@ nav ul li:hover {
   margin-top: 24px;
   margin-left: 18px;
   margin-right: 18px;
-
+  text-decoration: underline;
   transform: scale(1.1);
 }
 

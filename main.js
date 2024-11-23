@@ -273,7 +273,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const slider3 = createSlider('.slider-3', '[data-texto-3]');
   const slider4 = createSlider('.slider-4', '[data-texto-4]');
 
-  
   setInterval(slider1, 5000);
   setInterval(slider2, 5000);
   setInterval(slider3, 5000);
@@ -308,15 +307,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
   links.forEach((link) => {
     link.addEventListener('click', (event) => {
-      event.preventDefault(); 
+      event.preventDefault();
 
-      const targetId = link.getAttribute('href').slice(1); 
+      const targetId = link.getAttribute('href').slice(1);
       const targetElement = document.getElementById(targetId);
       let offset = 0;
       if (targetId == 'inicio') {
         offset = 94;
       } else if (targetId == 'itinerario') {
-        offset = 84;
+        offset = 83;
       } else if (targetId == 'experiencias') {
         offset = 84;
       } else if (targetId == 'tokyo') {
@@ -414,7 +413,6 @@ document.addEventListener('DOMContentLoaded', function () {
     cursorSello.classList.add('no-display');
   });
 
-  
   document.addEventListener('mousemove', (event) => {
     cursorSello.style.left = `${event.pageX}px`;
     cursorSello.style.top = `${event.pageY}px`;
