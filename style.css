@@ -398,8 +398,8 @@ h6 {
 
 .video-mascara video {
   width: 40vw;
-  height: auto;
-  transform: translateY(-30%);
+  height: 90vh;
+  transform: translateY(-41%);
   object-fit: cover;
   margin-right: 0;
 }
