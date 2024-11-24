@@ -59,6 +59,9 @@
   font-display: swap;
 }
 
+section {
+  overflow: hidden;
+}
 body {
   margin: 40px;
   border-bottom: 3px solid rgb(215, 5, 5);
@@ -92,6 +95,11 @@ header {
   width: auto;
   height: 100vw;
   border: 5px solid rgb(215, 5, 5);
+}
+
+.logo2 {
+  display: none;
+  width: 100px;
 }
 
 #principalNav {
@@ -325,11 +333,6 @@ h6 {
   height: auto;
   object-fit: cover;
   object-position: center;
-  /* display: flex;
-  justify-content: flex-end;
-  width: 25vw; */
-  /* margin-right: 10px;
-  padding-right: 40px; */
 }
 
 .anillos img {
@@ -797,20 +800,327 @@ h6 {
   margin-top: 10px;
 }
 
-@media (max-width: 768px) {
-  #inicio {
+@media (max-width: 480px) {
+  .logo {
+    display: none;
+  }
+  .logo2 {
+    display: flex;
+    justify-content: space-between;
+  }
+  #principalNav {
+    display: none;
+  }
+
+  .anillos {
+    display: none;
+  }
+
+  .fecha {
+    margin-left: 12px;
+  }
+
+  .row {
+    display: flex;
     flex-direction: column;
   }
+  .texto_inicio {
+    width: 74vw;
+    margin-left: 20px;
+    padding-left: 0;
+  }
   .col1 {
-    width: 100vw;
+    width: 80vw;
   }
   .col2 {
-    width: 100vw;
+    width: 80vw;
+    height: 66vh;
+  }
+  .col3 {
+    width: 82vw;
+  }
+  .col4 {
+    height: 60vh;
+    width: 80vw;
+    margin-left: 0px;
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 1000px;
+  }
+
+  h1 {
+    font-size: 6rem;
+    padding-left: 20px;
+  }
+  h2 {
+    font-size: 5rem;
+    margin-top: 20px;
+    padding-left: 0px;
+    margin-left: 20px;
+  }
+  h3 {
+    font-size: 4rem;
+    padding-left: 0;
+    margin-left: 20px;
+  }
+  h5 {
+    font-size: 2rem;
+    margin-left: 20px;
+  }
+  .dias {
+    font-size: 3rem;
+    margin-left: 20px;
+  }
+  .mapa {
+    width: 80%;
+  }
+  .texto_tokyo {
+    margin-left: 10px;
+    padding-left: 10px;
+    margin-right: 10px;
+    padding-right: 24px;
+    margin-bottom: 60px;
+  }
+
+  .hoteles {
+    width: 100%;
+  }
+  .hotel {
+    text-align: center;
+  }
+  .media {
+    flex: 0;
+  }
+  .slider-texts {
+    width: 20vw;
+    text-align: left;
+  }
+
+  .text-selected {
+    padding: 0;
+    margin: 0;
+    width: 20vw;
+    font-family: 'Nekst Serif';
+    font-weight: 900;
+    font-size: 2rem;
+    /* line-height: 0.9; */
+    color: rgb(215, 5, 5);
+  }
+  .slider-container img {
+    width: 52vw;
+  }
+  .kanji-tokyo {
+    position: relative;
+    top: -125px;
+    font-size: 2rem;
+    left: 93px;
+  }
+  .tokyo-parent {
+    height: 20px;
+  }
+  .texto_taka {
+    margin-left: 20px;
+    width: 72vw;
+  }
+  .imghotel {
+    display: none;
+  }
+  .slider-container2 {
+    width: 52vw;
+  }
+  .kanji {
+    position: relative;
+    font-size: 3rem;
+    left: 55px;
+    top: -12px;
+  }
+  .taka-parent {
+    height: 90px;
+  }
+  .kanji-kyoto {
+    position: relative;
+    font-size: 5rem;
+    left: -10px;
+    top: -125px;
+  }
+  .kyoto-parent {
+    height: 44px;
+  }
+  .fila {
+    flex-direction: column;
+  }
+  .texto_experiencias {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 72vw;
+  }
+  #zona-estampado {
+    position: relative;
+    width: 79vw;
+    height: 80vh;
+    margin: 17px 5px;
+  }
+  .instrucciones {
+    width: 89%;
+    padding-left: 20px;
+    padding-right: 24px;
+    padding-top: 30px;
+    padding-bottom: 10px;
+  }
+  .card {
+    width: 280px;
+    margin-top: -133px;
+    margin-left: 44px;
   }
 }
 
-@media (min-width: 769px) {
-  #inicio {
+@media (min-width: 481px) and (max-width: 1200px) {
+  #principalNav {
+    width: 46vw;
+  }
+
+  .wrap {
+    flex-wrap: wrap;
+  }
+
+  .col1 {
+    width: 95vw;
+    margin-bottom: 53px;
+  }
+
+  .texto_inicio {
+    width: 80vw;
+    margin-left: 6px;
+  }
+
+  .col2 {
+    width: 30vw;
+    height: fit-content;
+  }
+
+  .col3 {
+    width: 30vw;
+    height: 84vh;
+  }
+
+  .col4 {
+    width: 30vw;
+    height: fit-content;
+  }
+
+  .anillos {
+    top: 86vh;
+    left: 39vw;
+    width: 15vw;
+  }
+
+  .dias {
+    margin-top: -5px;
+  }
+
+  h1 {
+    width: 80vw;
+    margin-left: -20px;
+  }
+
+  h2 {
+    font-size: 3.8rem;
+    margin-top: 59px;
+    margin-left: 20px;
+  }
+
+  h3 {
+    font-size: 3.5rem;
+    margin-top: 30px;
+    margin-left: 20px;
+  }
+
+  h5 {
+    font-size: 1.5rem;
+    margin-top: 15px;
+    margin-left: 22px;
+    margin-bottom: 20px;
+  }
+  .menu {
+    height: 337px;
+  }
+  .texto_tokyo {
+    margin-left: -11px;
+    padding-left: 40px;
+    margin-right: -4px;
+    padding-right: 0;
+  }
+
+  .dias {
+    margin-left: 20px;
+  }
+
+  .tok {
     flex-direction: column;
+  }
+  .hoteles {
+    width: 92vw;
+  }
+  .kanji-tokyo {
+    font-size: 5rem;
+    left: 79px;
+    top: -159px;
+  }
+
+  .text-selected {
+    padding: 0;
+    margin: 0;
+    width: 20vw;
+    font-family: 'Nekst Serif';
+    font-weight: 900;
+    font-size: 2rem;
+    /* line-height: 0.9; */
+    color: rgb(215, 5, 5);
+  }
+
+  .slider-texts {
+    width: 20vw;
+    text-align: right;
+  }
+  .texto_taka {
+    margin-left: 20px;
+    padding-right: 360px;
+    width: 82vw;
+  }
+  .tablet {
+    font-size: 4rem;
+  }
+
+  .tablet2 {
+    font-size: 4rem;
+  }
+
+  .kanji_kyoto {
+    left: -50px;
+    top: 102px;
+  }
+
+  .texto_experiencias {
+    margin-left: 20px;
+  }
+
+  .fecha {
+    margin-left: 20px;
+  }
+
+  h6 {
+    font-size: 26px;
+  }
+
+  .text_inst {
+    font-size: 1rem;
+  }
+
+  .instrucciones {
+    width: 83%;
   }
 }
