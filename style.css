@@ -267,17 +267,17 @@ h6 {
 }
 
 .col2 {
-  width: 60vw;
+  width: 22vw;
   height: 100vh;
   overflow: hidden;
   margin-right: 10px;
 }
 .col3 {
-  width: 40vw;
+  width: 23vw;
 }
 
 .col4 {
-  width: 30vw;
+  width: 18vw;
   height: 100vh;
   overflow: hidden;
   margin-left: -18px;
@@ -321,9 +321,10 @@ h6 {
 
 .texto_inicio {
   display: flex;
-  width: 25vw;
+  width: 29vw;
   margin-left: 10px;
-  padding-left: 40px;
+  padding-left: 26px;
+  margin-bottom: 80px;
 }
 .anillos {
   position: absolute;
