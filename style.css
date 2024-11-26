@@ -173,6 +173,9 @@ svg {
   fill: rgb(215, 5, 5);
 }
 
+header2 {
+  display: none;
+}
 section {
   display: flex;
   border-bottom: 3px solid rgb(215, 5, 5);
@@ -192,7 +195,7 @@ h1 {
   margin-bottom: 30px;
   font-family: 'Nekst Serif';
   font-weight: 900;
-  font-size: 130pt;
+  font-size: 10rem;
   padding-left: 40px;
   line-height: 0.9;
   color: rgb(215, 5, 5);
@@ -298,7 +301,7 @@ h6 {
 }
 
 .boda {
-  width: 100%;
+  width: 103%;
   height: 100%;
   object-fit: cover;
 }
@@ -535,6 +538,89 @@ h6 {
   color: rgb(215, 5, 5);
   text-align: right;
 }
+.slider-texts-horizontal {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  padding: 0;
+  flex: 1;
+  margin-bottom: 12px;
+  margin-right: 20px;
+  margin-left: 30px;
+  font-family: 'Nekst Serif';
+  font-weight: 900;
+  font-size: 2rem;
+  line-height: 0.9;
+  color: rgb(215, 5, 5);
+  text-align: right;
+}
+/* Estilos generales para las imágenes */
+.display {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+/* Estilos generales para los textos del slider */
+.slider-description {
+  opacity: 1;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Estilos móviles */
+@media (max-width: 768px) {
+  .slider-description {
+    display: none; /* Ocultar por defecto */
+  }
+
+  .slider-text-selected,
+  .slider-left,
+  .slider-right {
+    display: inline-block;
+  }
+
+  .slider-text-selected {
+    font-size: 1.2rem;
+    transform: translateX(0);
+  }
+
+  .slider-left {
+    font-size: 1rem;
+    transform: translateX(-100%);
+  }
+
+  .slider-right {
+    font-size: 1rem;
+    transform: translateX(100%);
+  }
+
+  .slider-hidden {
+    display: none;
+  }
+}
+
+/* Estilos de escritorio */
+@media (min-width: 769px) {
+  .slider-description {
+    display: inline-block;
+    font-size: 1.2rem;
+    transform: none;
+  }
+
+  .slider-text-selected {
+    font-weight: bold;
+  }
+
+  .slider-left,
+  .slider-right,
+  .slider-hidden {
+    display: inline-block;
+    transform: none;
+  }
+}
+
 .display {
   display: flex;
 }
@@ -801,7 +887,7 @@ h6 {
   margin-top: 10px;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 769px) {
   .logo {
     display: none;
   }
@@ -811,6 +897,17 @@ h6 {
   }
   #principalNav {
     display: none;
+  }
+
+  header2 {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    /* border-bottom: 3px solid rgb(215, 5, 5); */
+    height: 83px;
+    display: flex;
+    justify-content: space-between;
+    background-color: white;
   }
 
   .anillos {
@@ -979,7 +1076,7 @@ h6 {
   }
 }
 
-@media (min-width: 481px) and (max-width: 1200px) {
+@media (min-width: 800px) and (max-width: 1328px) {
   #principalNav {
     width: 46vw;
   }

@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+  // window.addEventListener('resize', () => {
+  //   location.reload(); // Recarga la página para aplicar los cambios
+  // });
   const menuItems = document.getElementsByClassName('menu-item');
 
   // Recorremos todos los elementos con la clase 'menu-item'
@@ -83,6 +86,95 @@ document.addEventListener('DOMContentLoaded', function () {
   const barraRoja = document.querySelector('.barra-roja');
 
   window.addEventListener('scroll', function () {});
+
+  // function isMobile() {
+  //   return window.innerWidth <= 480;
+  // }
+
+  // const isMobileVersion = isMobile();
+
+  // const textsDesktop = document.querySelector('.slider-texts');
+  // const textsMobile = document.querySelector('.slider-texts-horizontal');
+
+  // if (isMobileVersion) {
+  //   textsDesktop.style.display = 'none';
+  //   textsMobile.style.display = 'flex';
+  // } else {
+  //   textsDesktop.style.display = 'flex';
+  //   textsMobile.style.display = 'none';
+  // }
+
+  // function createSlider(selectorImagenes, selectorTextos) {
+  //   let currentIndex = 0;
+  //   const imagenes = document.querySelectorAll(selectorImagenes);
+  //   const textos = document.querySelectorAll(selectorTextos);
+  //   const totalSlides = imagenes.length;
+
+  //   function updateSlider() {
+  //     const isMobileVersion = isMobile();
+
+  //     // Actualizar imágenes
+  //     imagenes.forEach((img, index) => {
+  //       img.classList.toggle('display', index === currentIndex);
+  //       img.classList.toggle('hide', index !== currentIndex);
+  //     });
+
+  //     // Actualizar textos
+  //     if (isMobileVersion) {
+  //       const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+  //       const nextIndex = (currentIndex + 1) % totalSlides;
+
+  //       textos.forEach((txt, index) => {
+  //         txt.classList.remove(
+  //           'slider-text-selected',
+  //           'slider-left',
+  //           'slider-right',
+  //           'slider-hidden'
+  //         );
+
+  //         if (index === currentIndex) {
+  //           txt.classList.add('slider-text-selected');
+  //         } else if (index === prevIndex) {
+  //           txt.classList.add('slider-left');
+  //         } else if (index === nextIndex) {
+  //           txt.classList.add('slider-right');
+  //         } else {
+  //           txt.classList.add('slider-hidden');
+  //         }
+  //       });
+  //     } else {
+  //       // En escritorio, mostrar todos los textos y resaltar el seleccionado
+  //       textos.forEach((txt, index) => {
+  //         txt.classList.toggle('slider-text-selected', index === currentIndex);
+  //         txt.classList.remove('slider-left', 'slider-right', 'slider-hidden');
+  //       });
+  //     }
+  //   }
+
+  //   function nextSlide() {
+  //     currentIndex = (currentIndex + 1) % totalSlides;
+  //     updateSlider();
+  //   }
+
+  //   // Evento de clic en los textos
+  //   textos.forEach((texto, index) => {
+  //     texto.addEventListener('click', () => {
+  //       currentIndex = index;
+  //       updateSlider();
+  //     });
+  //   });
+
+  //   // Iniciar el slider automático
+  //   let autoSlideInterval = setInterval(nextSlide, 5000);
+
+  //   // Manejar cambio de tamaño de ventana
+  //   window.addEventListener('resize', () => {
+  //     updateSlider();
+  //   });
+
+  //   // Inicializar el slider
+  //   updateSlider();
+  // }
 
   function createSlider(selectorImagenes, selectorTextos) {
     let currentIndex = 0;
@@ -271,11 +363,15 @@ document.addEventListener('DOMContentLoaded', function () {
   const slider1 = createSlider('.slider-1', '[data-texto-1]');
   const slider2 = createSlider('.slider-2', '[data-texto-2]');
   const slider3 = createSlider('.slider-3', '[data-texto-3]');
+
+  const slider3m = createSlider('.slider-3', '[data-texto-3-m]');
+
   const slider4 = createSlider('.slider-4', '[data-texto-4]');
 
   setInterval(slider1, 5000);
   setInterval(slider2, 5000);
   setInterval(slider3, 5000);
+  setInterval(slider3m, 5000);
   setInterval(slider4, 5000);
 
   const playAnimation = () => {
