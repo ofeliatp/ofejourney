@@ -111,6 +111,15 @@ header {
   padding: 0;
 }
 
+#principalNav2 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 90%;
+  font: inherit;
+  vertical-align: baseline;
+  width: 100%;
+}
 nav ul {
   display: flex;
   justify-content: flex-end;
@@ -899,7 +908,7 @@ h6 {
     display: none;
   }
 
-  header2 {
+  .header2 {
     position: sticky;
     top: 0;
     z-index: 1000;
@@ -908,6 +917,7 @@ h6 {
     display: flex;
     justify-content: space-between;
     background-color: white;
+    width: 88vw;
   }
 
   .anillos {
