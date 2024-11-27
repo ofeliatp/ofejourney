@@ -868,7 +868,7 @@ h6 {
 }
 
 .instrucciones {
-  width: 94%;
+  width: 95%;
   padding-left: 20px;
   padding-right: 24px;
   padding-top: 30px;
@@ -914,11 +914,11 @@ h6 {
     z-index: s 1000;
     /* border-right: 3px solid rgb(215, 5, 5); */
     /* outline: 2px solid rgb(215, 5, 5); */
-    height: 84px;
+    /* height: 84px; */
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     /* background-color: white; */
-    width: 88vw;
+    width: 100%;
   }
 
   .anillos {
@@ -1074,7 +1074,7 @@ h6 {
     margin: 17px 5px;
   }
   .instrucciones {
-    width: 89%;
+    width: 92%;
     padding-left: 20px;
     padding-right: 24px;
     padding-top: 30px;
@@ -1230,6 +1230,6 @@ h6 {
   }
 
   .instrucciones {
-    width: 83%;
+    width: 89%;
   }
 }
