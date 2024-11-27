@@ -908,15 +908,16 @@ h6 {
     display: none;
   }
 
-  .header2 {
+  #header2 {
     position: sticky;
     top: 0;
-    z-index: 1000;
-    /* border-bottom: 3px solid rgb(215, 5, 5); */
-    height: 83px;
+    z-index: s 1000;
+    /* border-right: 3px solid rgb(215, 5, 5); */
+    /* outline: 2px solid rgb(215, 5, 5); */
+    height: 84px;
     display: flex;
     justify-content: space-between;
-    background-color: white;
+    /* background-color: white; */
     width: 88vw;
   }
 
