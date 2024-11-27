@@ -204,7 +204,7 @@ h1 {
   margin-bottom: 30px;
   font-family: 'Nekst Serif';
   font-weight: 900;
-  font-size: 10rem;
+  font-size: 9rem;
   padding-left: 40px;
   line-height: 0.9;
   color: rgb(215, 5, 5);
@@ -307,6 +307,7 @@ h6 {
   font-size: 0.9rem;
   margin-right: 20px;
   margin-top: 30px;
+  margin-left: 10px;
 }
 
 .boda {
@@ -539,7 +540,7 @@ h6 {
   width: 30vw;
   margin-bottom: 12px;
   margin-right: 20px;
-  margin-left: 30px;
+  margin-left: 77px;
   font-family: 'Nekst Serif';
   font-weight: 900;
   font-size: 2rem;
@@ -790,7 +791,7 @@ h6 {
   position: absolute;
   font-family: 'Nekst Serif';
   font-weight: 900;
-  font-size: 8rem;
+  font-size: 6rem;
   line-height: 1;
   color: rgb(215, 5, 5);
   transform-origin: center;
@@ -800,7 +801,7 @@ h6 {
   height: 100%;
   text-align: center;
   left: -370px;
-  top: 182px;
+  top: 173px;
 }
 .kanji-kyoto:hover {
   cursor: pointer;
@@ -932,6 +933,7 @@ h6 {
   .row {
     display: flex;
     flex-direction: column;
+    align-items: center;
   }
   .texto_inicio {
     width: 74vw;
