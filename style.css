@@ -1142,9 +1142,10 @@ h6 {
   }
 
   .anillos {
-    top: 86vh;
+    display: none;
+    /* top: 86vh;
     left: 39vw;
-    width: 15vw;
+    width: 15vw; */
   }
 
   .dias {
